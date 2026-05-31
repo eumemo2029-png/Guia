@@ -38,7 +38,7 @@ body {
   min-height: 100vh;
 }
 
-/* ── HEADER ── */
+/* â”€â”€ HEADER â”€â”€ */
 header {
   background: var(--accent);
   padding: 18px 32px 16px;
@@ -68,10 +68,10 @@ header h1 {
 }
 header p { font-size: 13px; color: rgba(255,255,255,.75); }
 
-/* ── CONTAINER ── */
+/* â”€â”€ CONTAINER â”€â”€ */
 .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
 
-/* ── FILTROS ── */
+/* â”€â”€ FILTROS â”€â”€ */
 .fp {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -140,7 +140,7 @@ select:focus, input:focus {
 }
 .btn-clear:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
 
-/* ── RESULTADO HEADER ── */
+/* â”€â”€ RESULTADO HEADER â”€â”€ */
 .rh { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .rc { font-size: 13px; color: var(--text-muted); }
 .rc strong { color: var(--text); font-weight: 600; }
@@ -157,11 +157,11 @@ select:focus, input:focus {
 }
 .vb.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-/* ── GRID / LIST ── */
+/* â”€â”€ GRID / LIST â”€â”€ */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
 .list { display: flex; flex-direction: column; gap: 8px; }
 
-/* ── CARD ── */
+/* â”€â”€ CARD â”€â”€ */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -187,16 +187,16 @@ select:focus, input:focus {
 .badge-Acaricida  { background: var(--acaricida-bg);  color: var(--acaricida); }
 .badge-Dessecante { background: var(--dessecante-bg); color: var(--dessecante); }
 .badge-Regulador  { background: var(--regulador-bg);  color: var(--regulador); }
-.badge-Biológico  { background: var(--ok-bg); color: var(--ok); }
+.badge-BiolÃ³gico  { background: var(--ok-bg); color: var(--ok); }
 
-/* ── ALERTA DE USO ── */
+/* â”€â”€ ALERTA DE USO â”€â”€ */
 .ab { display: flex; align-items: flex-start; gap: 7px; padding: 7px 10px 7px 14px; border-radius: 7px; font-size: 12px; font-weight: 500; margin-bottom: 10px; line-height: 1.4; }
 .ab-sim     { background: var(--ok-bg); color: var(--ok); }
 .ab-nao     { background: var(--warn-bg); color: var(--warn); border: 1px solid #e8d070; }
 .ab-parcial { background: var(--parcial-bg); color: var(--parcial); border: 1px solid #b8c0f0; }
 .ab-icon    { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
 
-/* ── USO GRID ── */
+/* â”€â”€ USO GRID â”€â”€ */
 .ug { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-left: 10px; margin-bottom: 10px; }
 .ui { border: 1px solid var(--border); border-radius: 7px; padding: 8px 9px; background: var(--bg); }
 .ui label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); display: block; margin-bottom: 3px; }
@@ -204,12 +204,12 @@ select:focus, input:focus {
 .ui-warn   { border-color: #e8d070; background: var(--warn-bg); }
 .ui-warn span { color: var(--warn); font-weight: 600; }
 
-/* ── CAMPOS GRID ── */
+/* â”€â”€ CAMPOS GRID â”€â”€ */
 .cg { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 12px; padding-left: 10px; margin-bottom: 10px; }
 .ii label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); display: block; margin-bottom: 2px; }
 .ii span  { font-size: 13px; color: var(--text); }
 
-/* ── TAGS ── */
+/* â”€â”€ TAGS â”€â”€ */
 .ct { display: flex; flex-wrap: wrap; gap: 5px; padding-left: 10px; }
 .tag    { font-size: 11px; padding: 2px 8px; border-radius: 5px; border: 1px solid var(--border); color: var(--text-muted); background: var(--bg); }
 .tag-c  { border-color: #b8d4b5; background: #f0f8ef; color: #2a5527; }
@@ -217,31 +217,31 @@ select:focus, input:focus {
 .tag-fe { border-color: #d4c4a0; background: #faf4e0; color: #6b4e18; }
 .tag-ns { border-color: #d8a8a8; background: #fff0f0; color: #7a1a1a; }
 
-/* ── CLASSE TOXICOLÓGICA ── */
+/* â”€â”€ CLASSE TOXICOLÃ“GICA â”€â”€ */
 .pi    { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 5px; }
 .pi-I  { background: var(--c1-bg); color: var(--c1); }
 .pi-II { background: var(--c2-bg); color: var(--c2); }
 .pi-III{ background: var(--c3-bg); color: var(--c3); }
 .pi-IV { background: var(--c4-bg); color: var(--c4); }
-.pi-V, .pi-— { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+.pi-V, .pi-â€” { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
 
-/* ── ACENTO LATERAL ── */
+/* â”€â”€ ACENTO LATERAL â”€â”€ */
 .acc-Fungicida  { background: var(--fungicida); }
 .acc-Herbicida  { background: var(--herbicida); }
 .acc-Inseticida { background: var(--inseticida); }
 .acc-Acaricida  { background: var(--acaricida); }
 .acc-Dessecante { background: var(--dessecante); }
 .acc-Regulador  { background: var(--regulador); }
-.acc-Biológico  { background: var(--ok); }
+.acc-BiolÃ³gico  { background: var(--ok); }
 
-/* ── LISTA ── */
+/* â”€â”€ LISTA â”€â”€ */
 .list .cg { grid-template-columns: repeat(4, 1fr); }
 
-/* ── VAZIO ── */
+/* â”€â”€ VAZIO â”€â”€ */
 .empty { grid-column: 1/-1; text-align: center; padding: 60px 0; color: var(--text-muted); }
 .empty p { font-size: 15px; margin-bottom: 8px; font-weight: 500; color: var(--text); }
 
-/* ── RESPONSIVO ── */
+/* â”€â”€ RESPONSIVO â”€â”€ */
 @media (max-width: 640px) {
   .fg { grid-template-columns: 1fr 1fr; }
   .grid { grid-template-columns: 1fr; }
