@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Agrotóxicos - Agrorural</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="guia_agrotoxicos.css">
+</head>
+<body>
+<header>
+  <div class="header-top">
+    <img src="https://media.base44.com/images/public/6a1c72122a9e0b5b111189c7/57c9bda0f_agrorural.png" alt="Agrorural" class="header-logo">
+    <div>
+      <h1>Guia de Agrotóxicos</h1>
+      <p>Soja · Milho · Tomate · Fumo · Feijão · Uva · Batata · Pastagem &nbsp;·&nbsp; <span id="tc">0</span> produtos cadastrados</p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="fp">
+    <div class="fp-title">Filtros</div>
+    <div class="fg">
+      <div><label>Busca rápida</label><input id="fb" placeholder="Nome ou princípio ativo..." oninput="f()"></div>
+      <div><label>Cultura</label>
+        <select id="fc" onchange="f()">
+          <option value="">Todas</option>
+          <option>Soja</option><option>Milho</option><option>Tomate</option>
+          <option>Fumo</option><option>Feijão</option><option>Uva</option>
+          <option>Batata</option><option>Pastagem</option><option>Azevém</option>
+        </select>
+      </div>
+      <div><label>Tipo de produto</label>
+        <select id="ft" onchange="f()">
+          <option value="">Todos</option>
+          <option>Fungicida</option><option>Herbicida</option><option>Inseticida</option>
+          <option>Acaricida</option><option>Dessecante</option><option>Regulador</option><option>Biológico</option>
+        </select>
+      </div>
+      <div><label>Praga / doença / alvo</label>
+        <select id="fa" onchange="f()">
+          <option value="">Todos</option>
+          <option>Folha larga</option><option>Folha estreita</option><option>Não seletivo</option>
+          <option>Brotação lateral</option><option>Azevém</option><option>Ciperáceas</option>
+          <option>Ferrugem</option><option>Mancha foliar</option><option>Míldio / Requeima</option>
+          <option>Antracnose</option><option>Oídio</option><option>Lagarta</option>
+          <option>Percevejo</option><option>Mosca-branca</option><option>Pulgão</option>
+          <option>Ácaro</option><option>Broca</option><option>Nematoide</option>
+        </select>
+      </div>
+      <div><label>Modo de ação</label>
+        <select id="fm" onchange="f()">
+          <option value="">Todos</option>
+          <option>Sistêmico</option><option>Contato</option>
+          <option>Protetor</option><option>Translaminar</option>
+          <option>Pré-emergente</option><option>Pós-emergente</option>
+        </select>
+      </div>
+      <div><label>Aplicar sobre a cultura</label>
+        <select id="fs" onchange="f()">
+          <option value="">Todos</option>
+          <option value="sim">✅ Sim — pode aplicar</option>
+          <option value="nao">🚫 Não — risco de dano</option>
+          <option value="parcial">⚠️ Depende da situação</option>
+        </select>
+      </div>
+      <div><label>Classe toxicológica</label>
+        <select id="fk" onchange="f()">
+          <option value="">Todas</option>
+          <option value="I">I — Extremamente tóxico</option>
+          <option value="II">II — Altamente tóxico</option>
+          <option value="III">III — Moderadamente tóxico</option>
+          <option value="IV">IV — Pouco tóxico</option>
+          <option value="V">V — Improvável de causar dano agudo</option>
+        </select>
+      </div>
+      <div style="display:flex;align-items:flex-end">
+        <button class="btn-clear" onclick="limpar()">✕ Limpar filtros</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rh">
+    <div class="rc"><strong id="cn">0</strong> produto(s) encontrado(s)</div>
+    <div class="vt">
+      <button class="vb active" id="bg" onclick="sv('grid')">⊞ Grade</button>
+      <button class="vb" id="bl" onclick="sv('list')">☰ Lista</button>
+    </div>
+  </div>
+
+  <div class="grid" id="res"></div>
+</div>
+
+<script src="guia_agrotoxicos.js"></script>
+</body>
+</html>
