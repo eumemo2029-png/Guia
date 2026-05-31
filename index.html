@@ -3,95 +3,268 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia de Agrotóxicos - Agrorural</title>
+<title>Acesso Restrito - Agrorural</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --accent: #2D5A27;
+    --accent-dark: #1e3f1b;
+    --accent-light: #E8F0E6;
+    --bg: #F5F3EE;
+    --surface: #FFF;
+    --text: #1C1A15;
+    --text-muted: #6B6455;
+    --border: #D9D4C7;
+    --error-bg: #FBEAEA;
+    --error: #8B1A1A;
+    --error-border: #e8b4b4;
+    --radius: 12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .login-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 12px 40px rgba(0,0,0,.08);
+    padding: 48px 44px 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .logo {
+    height: 52px;
+    object-fit: contain;
+    margin-bottom: 28px;
+  }
+
+  .lock-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--accent-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 26px;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .field {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .input-wrap {
+    position: relative;
+  }
+
+  .field input {
+    width: 100%;
+    padding: 11px 44px 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+    letter-spacing: .08em;
+  }
+
+  .field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(45,90,39,.12);
+    background: #fff;
+  }
+
+  .field input.error {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px rgba(139,26,26,.1);
+    animation: shake .3s ease;
+  }
+
+  .toggle-pw {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 16px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color .15s;
+  }
+
+  .toggle-pw:hover { color: var(--text); }
+
+  .error-msg {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    background: var(--error-bg);
+    border: 1px solid var(--error-border);
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--error);
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .error-msg.visible { display: flex; }
+
+  .btn-login {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+    letter-spacing: .02em;
+    margin-top: 4px;
+  }
+
+  .btn-login:hover { background: var(--accent-dark); }
+  .btn-login:active { transform: scale(.98); }
+
+  .footer-note {
+    margin-top: 24px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%      { transform: translateX(-5px); }
+    40%      { transform: translateX(5px); }
+    60%      { transform: translateX(-4px); }
+    80%      { transform: translateX(4px); }
+  }
+
+  @media (max-width: 480px) {
+    .login-card { padding: 36px 24px 32px; }
+  }
+</style>
 </head>
 <body>
-<header>
-  <div class="header-top">
-    <img src="https://media.base44.com/images/public/6a1c72122a9e0b5b111189c7/57c9bda0f_agrorural.png" alt="Agrorural" class="header-logo">
-    <div>
-      <h1>Guia de Agrotóxicos</h1>
-      <p>Soja · Milho · Tomate · Fumo · Feijão · Uva · Batata · Pastagem &nbsp;·&nbsp; <span id="tc">0</span> produtos cadastrados</p>
-    </div>
-  </div>
-</header>
 
-<div class="container">
-  <div class="fp">
-    <div class="fp-title">Filtros</div>
-    <div class="fg">
-      <div><label>Busca rápida</label><input id="fb" placeholder="Nome ou princípio ativo..." oninput="f()"></div>
-      <div><label>Cultura</label>
-        <select id="fc" onchange="f()">
-          <option value="">Todas</option>
-          <option>Soja</option><option>Milho</option><option>Tomate</option>
-          <option>Fumo</option><option>Feijão</option><option>Uva</option>
-          <option>Batata</option><option>Pastagem</option><option>Azevém</option>
-        </select>
-      </div>
-      <div><label>Tipo de produto</label>
-        <select id="ft" onchange="f()">
-          <option value="">Todos</option>
-          <option>Fungicida</option><option>Herbicida</option><option>Inseticida</option>
-          <option>Acaricida</option><option>Dessecante</option><option>Regulador</option><option>Biológico</option>
-        </select>
-      </div>
-      <div><label>Praga / doença / alvo</label>
-        <select id="fa" onchange="f()">
-          <option value="">Todos</option>
-          <option>Folha larga</option><option>Folha estreita</option><option>Não seletivo</option>
-          <option>Brotação lateral</option><option>Azevém</option><option>Ciperáceas</option>
-          <option>Ferrugem</option><option>Mancha foliar</option><option>Míldio / Requeima</option>
-          <option>Antracnose</option><option>Oídio</option><option>Lagarta</option>
-          <option>Percevejo</option><option>Mosca-branca</option><option>Pulgão</option>
-          <option>Ácaro</option><option>Broca</option><option>Nematoide</option>
-        </select>
-      </div>
-      <div><label>Modo de ação</label>
-        <select id="fm" onchange="f()">
-          <option value="">Todos</option>
-          <option>Sistêmico</option><option>Contato</option>
-          <option>Protetor</option><option>Translaminar</option>
-          <option>Pré-emergente</option><option>Pós-emergente</option>
-        </select>
-      </div>
-      <div><label>Aplicar sobre a cultura</label>
-        <select id="fs" onchange="f()">
-          <option value="">Todos</option>
-          <option value="sim">✅ Sim — pode aplicar</option>
-          <option value="nao">🚫 Não — risco de dano</option>
-          <option value="parcial">⚠️ Depende da situação</option>
-        </select>
-      </div>
-      <div><label>Classe toxicológica</label>
-        <select id="fk" onchange="f()">
-          <option value="">Todas</option>
-          <option value="I">I — Extremamente tóxico</option>
-          <option value="II">II — Altamente tóxico</option>
-          <option value="III">III — Moderadamente tóxico</option>
-          <option value="IV">IV — Pouco tóxico</option>
-          <option value="V">V — Improvável de causar dano agudo</option>
-        </select>
-      </div>
-      <div style="display:flex;align-items:flex-end">
-        <button class="btn-clear" onclick="limpar()">✕ Limpar filtros</button>
-      </div>
+<div class="login-card">
+  <img
+    src="https://media.base44.com/images/public/6a1c72122a9e0b5b111189c7/57c9bda0f_agrorural.png"
+    alt="Agrorural"
+    class="logo"
+  >
+
+  <div class="lock-icon">🔒</div>
+
+  <h1>Acesso Restrito</h1>
+  <p class="subtitle">Digite a senha para acessar o<br>Guia de Agrotóxicos Agrorural.</p>
+
+  <div class="field">
+    <label for="senha">Senha de acesso</label>
+    <div class="input-wrap">
+      <input
+        type="password"
+        id="senha"
+        placeholder="••••••••"
+        autocomplete="current-password"
+        onkeydown="if(event.key==='Enter') entrar()"
+      >
+      <button class="toggle-pw" type="button" onclick="togglePw()" title="Mostrar/ocultar senha">👁</button>
     </div>
   </div>
 
-  <div class="rh">
-    <div class="rc"><strong id="cn">0</strong> produto(s) encontrado(s)</div>
-    <div class="vt">
-      <button class="vb active" id="bg" onclick="sv('grid')">⊞ Grade</button>
-      <button class="vb" id="bl" onclick="sv('list')">☰ Lista</button>
-    </div>
+  <div class="error-msg" id="erroMsg">
+    🚫 Senha incorreta. Tente novamente.
   </div>
 
-  <div class="grid" id="res"></div>
+  <button class="btn-login" onclick="entrar()">Entrar</button>
+
+  <p class="footer-note">Acesso exclusivo para colaboradores Agrorural.</p>
 </div>
 
-<script src="script.js"></script>
+<script>
+  // Redirect if already authenticated
+  if (sessionStorage.getItem('agro_auth') === 'AGRO1010') {
+    window.location.replace('guia.html');
+  }
+
+  function entrar() {
+    var input = document.getElementById('senha');
+    var erro  = document.getElementById('erroMsg');
+    var val   = input.value.trim().toUpperCase();
+
+    if (val === 'AGRO1010') {
+      sessionStorage.setItem('agro_auth', 'AGRO1010');
+      window.location.replace('guia.html');
+    } else {
+      input.classList.add('error');
+      erro.classList.add('visible');
+      input.value = '';
+      input.focus();
+      setTimeout(function() {
+        input.classList.remove('error');
+      }, 600);
+    }
+  }
+
+  function togglePw() {
+    var input = document.getElementById('senha');
+    input.type = input.type === 'password' ? 'text' : 'password';
+  }
+
+  document.getElementById('senha').focus();
+</script>
 </body>
 </html>
